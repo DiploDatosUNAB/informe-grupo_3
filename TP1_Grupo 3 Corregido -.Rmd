@@ -11,7 +11,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Cargar los paquetes necesarios acá
 ```{r}
-
 library(dplyr)
 ```
 
