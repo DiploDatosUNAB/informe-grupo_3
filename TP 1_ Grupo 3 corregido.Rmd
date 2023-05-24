@@ -22,7 +22,7 @@ Los datos elegidos son los de la encuesta sobre el uso del tiempo correspondient
 
 Es un relevamiento que realiza Dirección General de Estadística y Censos del Gobierno de la Ciudad de Buenos Aires. Tiene por objeto recoger información sobre el uso del tiempo que los habitantes de la Ciudad dedican a diferentes actividades incluyendo el trabajo remunerado, las actividades domésticas, el cuidado de niños, niñas, personas mayores o con discapacidad, el estudio, el esparcimiento, los viajes y traslados, etc. 
 
-Para mayor información sobre la encuesta consultar el [documento metodógico] (https://www.estadisticaciudad.gob.ar/eyc/wp-content/uploads/2017/10/UT_CABA_2017.pdf) o la [base usuaia](https://www.estadisticaciudad.gob.ar/eyc/?p=74110)
+Para mayor información sobre la encuesta consultar el [documento metodógico](https://www.estadisticaciudad.gob.ar/eyc/wp-content/uploads/2017/10/UT_CABA_2017.pdf) o la [base usuaia](https://www.estadisticaciudad.gob.ar/eyc/?p=74110)
 
 ## Exploración de los datos
 Carga de base
