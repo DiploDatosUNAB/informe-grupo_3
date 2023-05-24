@@ -1,0 +1,120 @@
+---
+title: "Informe TP1_Grupo 3 correcciones."
+output: html_document
+date: '2023-05-23'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Cargar los paquetes necesarios acá
+```{r setup, include=FALSE}
+
+library(dplyr)
+```
+## Introducción
+
+__Encuesta Uso del tiempo 2016__
+
+Los datos elegidos son los de la encuesta sobre el uso del tiempo correspondiente al año 2016.
+
+Es un relevamiento que realiza Dirección General de Estadística y Censos del Gobierno de la Ciudad de Buenos Aires. Tiene por objeto recoger información sobre el uso del tiempo que los habitantes de la Ciudad dedican a diferentes actividades incluyendo el trabajo remunerado, las actividades domésticas, el cuidado de niños, niñas, personas mayores o con discapacidad, el estudio, el esparcimiento, los viajes y traslados, etc. 
+
+Para mayor información sobre la encuesta consultar el [documento metodógico] (https://www.estadisticaciudad.gob.ar/eyc/wp-content/uploads/2017/10/UT_CABA_2017.pdf) o la [base usuaia](https://www.estadisticaciudad.gob.ar/eyc/?p=74110)
+
+## Exploración de los datos
+Carga de base
+
+```{r}
+encuesta_uso_tiempo_2016 <- read_csv("datos/encuesta_uso_tiempo_2016.csv")
+```
+
+Reconocimiento de variables
+```{r}
+names(encuesta_uso_tiempo_2016)
+
+```
+
+La base de datos de referencia consta de 27 variables y 2336 observaciones. 
+
+Variables:
+
+- hogar
+- sexo
+- edad 
+
+- dia_laborable
+- trabajo_pago
+- trabajo_domestico_no_pago
+- voluntariados
+- estudio_educacion
+- recreacion
+- aplicaciones
+- tareas_cuidados
+- cuidado_personal 
+
+- trabajo_pago2
+- trabajo_domestico_no_pago2
+- voluntariados2
+- estudio_educacion2
+- recreacion2
+- aplicaciones2
+- tareas_cuidados2
+- cuidado_personal2 
+
+- dia_tipico
+- rango_etario
+- nivel_educativo
+- relacion_parentesco_jefe
+- tipo_hogar
+- quintil_ingreso
+- estado_ocupacional 
+
+
+
+Del listado de variables vamos a considerar para anlizar las variables "sexo", "trabajo_domestico_no_pago" y "trabajo_pago".
+
+__Trabajo doméstico  no pago según sexo__
+```{r}
+encuesta_uso_tiempo_2016%>%
+  group_by(sexo)%>%
+summarise(Promedio=mean(trabajo_domestico_no_pago),
+          DesvStandard=sd(trabajo_domestico_no_pago),
+          range(trabajo_domestico_no_pago))
+
+```
+Las mujeres dedican mayor tiempo diario al trabajo domestico que los varones. La media de las mujeres es de 3,1hs, mientras que la media de los varones es de 1,8hs.
+
+En el caso de las mujeres los valores para la variable "trabajo doméstico no pago" van desde 0hs hasta 15,7hs. Mientras que el rango de los varones es de 0hs a 12hs.
+
+__Trabajo pago según sexo__
+```{r}
+encuesta_uso_tiempo_2016%>%
+  group_by(sexo)%>%
+summarise(Promedio=mean(trabajo_pago),
+          DesvStandard=sd(trabajo_pago),
+          range(trabajo_pago))
+```
+Se observa que los varones dedican más tiempo diario al trabajo remunerado que las mujeres. Siendo la media de los varones 5,2hs y la de las mujeres 3,4hs diarias.  
+
+En el caso del trabajo remunerado el rango en las mujeres es de 0hs hasta 18,5hs, y para los varones es de 0hs a 22.5hs. 
+
+           
+           
+
+## Hipótesis
+Existe una relación desigual en la distribución del uso del tiempo entre varones y mujeres, la cual se puede observar al ver el tipo de trabajo (productivo=pago, no reproductivo=doméstico no pago). Siendo las mujeres quienes dedican mayor tiempo diario a las tareas domésticas, mientras que los varones dedican mayor tiempo al trabajo productivo. 
+
+Esto puede verse justificado a partir de la división sexual del trabajo y los roles de géneros de las sociedades modernas.
+
+
+ Pero ¿como se dan esas diferencias según grupos etarios?
+¿que particularidades se pueden observar al tomar en consideración el estado ocupacional y el trabajo del cuidado a miembros del hogar no pago? ¿Existe una sobrecarga de trabajo para las mujeres aún cuando también realizan tareas laborales remuneradas? 
+
+
+Nuestra hipótesis sostiene que al contraponer el tiempo de "trabajo productivo" (trabajo pago) con el "trabajo reproductivo" (tiempo destinado a las tareas vinculadas al trabajo domestico y al cuidado de miembros del hogar), resultan ser las mujeres quienes dedican más horas de su día al trabajo que los varones. Implicando una sobrecarga de trabajo al ser invisibilizado.
+
+
+                        
