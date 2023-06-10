@@ -6,11 +6,9 @@ output: html_document
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(readr)
-library(readxl)
-library(dplyr)
-library(ggplot2)
+
 library(tidyverse)
+library(dplyr)
 ```
 
 # Cargar los paquetes necesarios acá
@@ -30,7 +28,7 @@ Para mayor información sobre cuestiones metodológicas consultar el [anexo meto
 Carga de base
 
 ```{r}
-encuesta_uso_tiempo_2016 <- read_csv("Datos/encuesta_uso_tiempo_2016.csv")
+encuesta_uso_tiempo_2016 <- read_csv("datos/encuesta_uso_tiempo_2016.csv")
 ```
 
 
