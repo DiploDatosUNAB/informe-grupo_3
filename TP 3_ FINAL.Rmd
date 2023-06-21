@@ -32,8 +32,9 @@ Para mayor información sobre la encuesta consultar el [documento metodógico](h
 Carga de base
 
 ```{r}
-encuesta_uso_tiempo_2016 <- read.csv("Datos/encuesta_uso_tiempo_2016.csv", header = TRUE)
+encuesta_uso_tiempo_2016 <- read.csv("https://github.com/DiploDatosUNAB/informe-grupo_3/blob/main/datos/encuesta_uso_tiempo_2016.csv", header = TRUE)
 ```
+
 
 Dimensiones
 
